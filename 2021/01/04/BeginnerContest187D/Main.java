@@ -1,6 +1,9 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     /* 問題文AtCoder 市で市長選挙が行われます
@@ -13,29 +16,69 @@ public class Main {
     高橋氏が青木氏より多く票を獲得するためには、最小でいくつの町で演説をする必要があるでしょうか？ */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-        long[][] votes = new long[num][2];
-        Long[] sumVotes = new Long[num];
-        long result = 0; 
-        long takahashiTotal = 0;
-        for(int i = 0; i < num; i++) {
-            votes[i][0] = sc.nextLong();
-            votes[i][1] = sc.nextLong();
-            sumVotes[i] = votes[i][0] + votes[i][1];
+        int N = sc.nextInt();
+        List<Town> townList = new LinkedList<>();
+        long aokiTotal = 0;
+        for(int i = 0; i < N; i++) {
+            long aokiSupporters = sc.nextLong();
+            long takahashiSupporters = sc.nextLong();
+            aokiTotal += aokiSupporters;
+            townList.add(new Town(aokiSupporters, takahashiSupporters));
         }
-        Arrays.stream(sumVotes).sorted(Comparator.reverseOrder()).toArray();
-        for(int i = 0; i < num; i++) {
-            result += 1;
-            takahashiTotal = sumVotes[i];
-            long aokiTotal = 0;
-            for(int j = i + 1; j < num; j++) {
-                aokiTotal += votes[j][0];
-            }
-            if(takahashiTotal > aokiTotal) {
-                break;
-            }
-        }
-        System.out.println(result);
         sc.close();
+        Comparator<Town> comparator = Comparator.comparing(Town::getDiff).reversed();
+        townList = townList.stream().sorted(comparator).collect(Collectors.toList());
+        int result = 1;
+        long takahashiTotal = 0;
+        // for 文で処理 処理が遅くエラーとなるため使用不可
+        // for(int i = 0; i < N; i++) {
+        //     long aokiTotal = 0;
+        //     takahashiTotal += townList.get(i).getTotalSupporters();
+        //     for(int j = 0; j < N; j++) {
+        //         if(j + 1 < N && j >= i) {
+        //             aokiTotal += townList.get(j + 1).getAokiSupporters();
+        //         }
+        //     }
+        //     if(takahashiTotal > aokiTotal) {
+        //         System.out.println(result);
+        //         return;
+        //     } 
+        //     result += 1;
+        // }
+        // 拡張for文で処理
+        for(Town town : townList) {
+            takahashiTotal += town.getTotalSupporters();
+            aokiTotal -= town.getAokiSupporters();
+            if(takahashiTotal > aokiTotal) {
+                System.out.println(result);
+                return;
+            } 
+            result += 1;
+        }
+    }
+    static class Town {
+        long aokiSupporters = 0;
+        long takahashiSupporters = 0;
+        long totalSupporters = 0;
+        long diff = 0;
+        public Town(long aokiSupporters, long takahashiSupporters) {
+            this.aokiSupporters = aokiSupporters;
+            this.takahashiSupporters = takahashiSupporters;
+            this.totalSupporters = aokiSupporters + takahashiSupporters;
+            this.diff = aokiSupporters + aokiSupporters + takahashiSupporters;
+        }
+
+        public long getAokiSupporters() {
+            return this.aokiSupporters;
+        }
+        public long getTakahashiSupporters() {
+            return this.takahashiSupporters;
+        }
+        public long getTotalSupporters() {
+            return this.totalSupporters;
+        }
+        public long getDiff() {
+            return this.diff;
+        }
     }
 }
