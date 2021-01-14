@@ -9,12 +9,12 @@ public class Main {
         int Sy = sc.nextInt();
         int Gx = sc.nextInt();
         int Gy = sc.nextInt();
-        int dx = Gx - Sx; 
-        int dy = -Gy - Sy;
+        double dx = Gx - Sx; 
+        double dy = -Gy - Sy;
         double slopeOnaGraph =  dy / dx;
         double intercept = Sy - slopeOnaGraph * Sx;
         double x = -intercept / slopeOnaGraph;
-        System.out.println(x);
+        System.out.println(String.format("%.10f", x));
         sc.close();
     }
 }
