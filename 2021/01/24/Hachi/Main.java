@@ -17,15 +17,15 @@ public class Main {
             System.out.println("Yes");
             return;
         }
-        String answer = "No";
         for(int i = 0; i < numList.size(); i++) {
             if(divTwo(numList.get(i))) {
                 if(checkMultipleOfFour(i, numList.get(i), numList)) {
-                    answer = "Yes";
+                    System.out.println("Yes");
+                    return;
                 }
             }
         }
-        System.out.println(answer);
+        System.out.println("No");
     }
 
     public static boolean divTwo(Integer num) {

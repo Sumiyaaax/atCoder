@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
+    // C - Travel
+    // https://atcoder.jp/contests/abc183/tasks/abc183_c
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
@@ -17,8 +19,12 @@ public class Main {
             }
             timeMap.put(i, list);
         }
+        int result = 0;
+
         for(Map.Entry<Integer, List<Integer>> entry : timeMap.entrySet()) {
-            System.out.println("key:" + entry.getKey() + " value" + entry.getValue());
+            for(int i = 0; i < entry.getValue().size(); i++) {
+                
+            }
         }
     }
 }
