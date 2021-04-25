@@ -9,16 +9,16 @@ public class Main {
         long B = sc.nextLong();
         long K = sc.nextLong();
         sc.close();
-        if(K <= A) {
-            A = K - A;
-        } else {
+        if(A <= K) {
             K = K - A;
-            if(K <= B) {
+            A = 0;
+            if(B >= K) {
                 B = B - K;
             } else {
                 B = 0;
             }
-            A = 0;
+        } else {
+            A = A - K;
         }
         System.out.println(A + " " + B);
     }
