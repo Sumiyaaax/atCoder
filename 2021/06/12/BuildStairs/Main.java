@@ -10,19 +10,12 @@ public class Main {
         int[] numList = new int[N];
         for(int i = 0; i < N; i++) {
             numList[i] = sc.nextInt();
-            if(i != 0) {
-                System.out.println(numList[i - 1]);
-                System.out.println(numList[i]);
-                if(numList[i - 1] <= numList[i]) {
-                    System.out.println("AAA");
-                    continue;
-                } else if(numList[i - 1] - 1 <= numList[i]) {
-                    System.out.println("BBB");
-                    numList[i - 1] --;
-                } else {
-                    System.out.println("CCC");
-                    answer = "No";
-                }
+        }
+        for(int i = N - 1; i > 0; i--) {
+            if(numList[i - 1] - 1 == numList[i]) {
+                numList[i - 1] --; 
+            } else if(numList[i - 1] - 1 > numList[i]) {
+                answer = "No";
             }
         }
         sc.close();
