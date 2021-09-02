@@ -9,8 +9,8 @@ public class Main {
         int N = sc.nextInt();
         sc.close();
         double tax = 1.08;
-        double price = (double) N * tax;
-        double listPrice = 206;
+        double price = Math.floor((double) N * tax);
+        int listPrice = 206;
         String answer = "";
         if(price < listPrice) {
             answer = "Yay!";
