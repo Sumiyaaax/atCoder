@@ -12,9 +12,13 @@ public class Main {
         String NStr = String.valueOf(N);
 
         if(N % 2 == 0) {
-            first = substring(NStr, NStr.length() / 2);
+            first = NStr.substring(0, NStr.length() / 2);
+            second = NStr.substring(NStr.length() / 2);
         } else {
-            first = substring(NStr, (NStr.length() - 1) / 2);
+            first = NStr.substring(0, (NStr.length() - 1) / 2);
+            second = NStr.substring((NStr.length() - 1) / 2);
         }
+        System.out.println(first);
+        System.out.println(second);
     }
 } 
