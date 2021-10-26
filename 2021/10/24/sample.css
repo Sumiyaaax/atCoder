@@ -19,6 +19,11 @@
     overflow: auto;
   }
    
+  .main-img {
+    display: block;
+    margin: auto;
+  }
+
   .footer {
     position: fixed;
     bottom: 0;
