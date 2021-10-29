@@ -9,5 +9,5 @@ function slideshow_timer() {
         num ++;
     }
     document.getElementById("mypic").src=pics_src[num];
-    setTimeout("slideshow_timer()", 2000);
+    setTimeout("slideshow_timer()", 3000);
 }
