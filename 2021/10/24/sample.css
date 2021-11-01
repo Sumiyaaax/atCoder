@@ -19,6 +19,14 @@
     margin-top: 75px;
   }
 
+  .menu ul {
+      position: fixed;
+  }
+
+  .menu li {
+      width: 100%;
+  }
+
   .main {
     padding-top: 50px;
     overflow: auto;
@@ -30,7 +38,6 @@
   }
 
   .footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     height: 50px;
