@@ -15,12 +15,14 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  
   }
   .menu {
-    position: fixed;
+    /* position: fixed; */
     margin-top: 75px;
   }
 
   .menu ul {
-      position: fixed;
+      /* position: fixed; */
+      display: flex;
+      flex-wrap: nowrap;
   }
 
   .menu li {
@@ -34,7 +36,7 @@
    
   .main-img {
     display: block;
-    margin: 100px auto;
+    margin: 10px auto;
   }
 
   .footer {
