@@ -1,4 +1,4 @@
-var pics_src = new Array("./img/10.jpeg","./img/11.jpeg","./img/12.jpeg");
+var pics_src = new Array("./img/1.jpeg","./img/2.jpeg","./img/3.jpeg");
 var num = -1;
 
 slideshow_timer();
