@@ -14,7 +14,7 @@
     font-size: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  
   }
-  
+
   .menu {
     /* position: fixed; */
     margin-top: 75px;
@@ -31,7 +31,7 @@
   }
 
   .main {
-    padding-top: 50px;
+    padding-top: 10px;
     overflow: auto;
   }
    
