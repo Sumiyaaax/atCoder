@@ -9,5 +9,6 @@ public class Main {
         int B = sc.nextInt();
         int W = sc.nextInt();
         sc.close();
+        // gitの使い方わからなくなったから一旦コミット
     }
 } 
