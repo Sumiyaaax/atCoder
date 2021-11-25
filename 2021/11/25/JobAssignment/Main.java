@@ -20,25 +20,20 @@ public class Main {
             totalList.add(a + b);
         }
         sc.close();
-        int aMin = 10000000;
-        int bMin = 10000000;
-        int totalMin = 10000000;
+        int min = 10000000;
         for(int i = 0; i < N; i++) {
-            if(aMin > aList.get(i)) {
-                aMin = aList.get(i);
-            }
-            if(bMin > bList.get(i)) {
-                bMin = bList.get(i);
-            }
-            if(totalMin > totalList.get(i)) {
-                totalMin = totalList.get(i);
+            for(int j = 0; j < N; j++) {
+                int tempTotal;
+                if(i == j) {
+                    tempTotal = aList.get(i) + bList.get(j);
+                } else {
+                    tempTotal = Math.max(aList.get(i), bList.get(j));
+                }
+                if(min > tempTotal) {
+                    min = tempTotal;
+                }
             }
         }
-        int answer = Math.max(aMin, bMin);
-        System.out.println(answer);
-        if(answer > totalMin) {
-            answer = totalMin;
-        }
-        System.out.println(totalMin);
+        System.out.println(min);
     }
 } 
