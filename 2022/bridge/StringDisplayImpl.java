@@ -25,6 +25,6 @@ public class StringDisplayImpl extends DisplayImpl {
         for(int i = 0; i < width; i++) {
             System.out.print("-");
         }
-        System.out.print("+");
+        System.out.println("+");
     }
 }

@@ -1,12 +1,11 @@
 public class Display1 {
     private DisplayImpl impl;
 
-    public Display1(DisplayImpl inpl) {
+    public Display1(DisplayImpl impl) {
         this.impl = impl;
     }
 
     public void open() {
-        System.out.println(impl);
         impl.rawOpen();
     }
 
